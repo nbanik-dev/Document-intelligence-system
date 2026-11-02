@@ -1,0 +1,114 @@
+== Backend: pytest -v (2026-11-02) ==
+tests/test_api.py::test_health PASSED                                   
+tests/test_api.py::test_upload_process_and_fetch_results PASSED         
+tests/test_api.py::test_multi_file_upload_all_formats PASSED            
+tests/test_api.py::test_unsupported_and_spoofed_files_rejected PASSED   
+tests/test_api.py::test_oversize_rejected PASSED                        
+tests/test_api.py::test_too_many_files PASSED                           
+tests/test_api.py::test_api_key_enforced PASSED                         
+tests/test_api.py::test_unknown_ids_404 PASSED                          
+tests/test_api.py::test_corrupt_file_ends_failed_with_message_and_reprocess_is_idempotent PASSED
+tests/test_api.py::test_transient_failure_recovers_on_reprocess PASSED  
+tests/test_api.py::test_reprocess_rules PASSED                          
+tests/test_api.py::test_blank_image_fails_cleanly PASSED                
+tests/test_api.py::test_arithmetic_error_flags_review_and_correction_clears_it PASSED
+tests/test_api.py::test_correction_validation_errors PASSED             
+tests/test_api.py::test_duplicate_invoice_detected_even_in_other_format PASSED
+tests/test_api.py::test_concurrent_identical_uploads_flag_exactly_one PASSED
+tests/test_api.py::test_approve_clears_review_flag_but_keeps_issues PASSED
+tests/test_api.py::test_multi_invoice_pdf_split PASSED                  
+tests/test_api.py::test_listing_filters_and_search_modes PASSED         
+tests/test_api.py::test_metrics_and_delete PASSED                       
+tests/test_api.py::test_same_invoice_repeated_inside_one_pdf_is_flagged_and_does_not_crash PASSED
+tests/test_api.py::test_error_messages_do_not_leak_server_paths PASSED  
+tests/test_extraction.py::test_heuristic_extracts_all_fields PASSED     
+tests/test_extraction.py::test_missing_information_is_none_not_invented PASSED
+tests/test_extraction.py::test_position_based_supplier_without_company_form_is_low_confidence PASSED
+tests/test_extraction.py::test_ambiguous_date_flagged PASSED            
+tests/test_extraction.py::test_segmentation_by_invoice_number PASSED    
+tests/test_extraction.py::test_llm_happy_path PASSED                    
+tests/test_extraction.py::test_llm_hallucinated_strings_are_discarded PASSED
+tests/test_extraction.py::test_llm_ungrounded_numbers_get_low_confidence_and_bad_lines_dropped PASSED
+tests/test_extraction.py::test_llm_garbage_values_are_coerced_safely PASSED
+tests/test_extraction.py::test_llm_failure_falls_back_to_heuristics PASSED
+tests/test_extraction.py::test_low_ocr_word_confidence_lowers_field_confidence PASSED
+tests/test_normalize.py::test_parse_money[$1,234.56-1234.56] PASSED     
+tests/test_normalize.py::test_parse_money[1.234,56-1234.56] PASSED      
+tests/test_normalize.py::test_parse_money[(45.00)--45.0] PASSED         
+tests/test_normalize.py::test_parse_money[\u20ac 99-99.0] PASSED        
+tests/test_normalize.py::test_parse_money[12-12.0] PASSED               
+tests/test_normalize.py::test_parse_money[1,234-1234.0] PASSED          
+tests/test_normalize.py::test_parse_money[12,5-12.5] PASSED             
+tests/test_normalize.py::test_parse_money[abc-None] PASSED              
+tests/test_normalize.py::test_parse_money[-None] PASSED                 
+tests/test_normalize.py::test_parse_money[None-None] PASSED             
+tests/test_normalize.py::test_parse_money[nan-None] PASSED              
+tests/test_normalize.py::test_parse_money[-7.10--7.1] PASSED            
+tests/test_normalize.py::test_parse_money[12.3.4-None] PASSED           
+tests/test_normalize.py::test_parse_date[2024-03-15-2024-03-15-False] PASSED
+tests/test_normalize.py::test_parse_date[15 March 2024-2024-03-15-False] PASSED
+tests/test_normalize.py::test_parse_date[Mar 15, 2024-2024-03-15-False] PASSED
+tests/test_normalize.py::test_parse_date[15/03/2024-2024-03-15-False] PASSED
+tests/test_normalize.py::test_parse_date[03/15/2024-2024-03-15-False] PASSED
+tests/test_normalize.py::test_parse_date[05/03/2024-2024-05-03-True] PASSED
+tests/test_normalize.py::test_parse_date[31/02/2024-None-False] PASSED  
+tests/test_normalize.py::test_parse_date[not a date-None-False] PASSED  
+tests/test_normalize.py::test_parse_date[1st March 2024-2024-03-01-False] PASSED
+tests/test_normalize.py::test_currency_detection PASSED                 
+tests/test_normalize.py::test_helpers PASSED                            
+tests/test_pdf_ocr.py::test_digital_pdf_uses_text_layer_not_ocr PASSED  
+tests/test_pdf_ocr.py::test_multipage_pdf PASSED                        
+tests/test_pdf_ocr.py::test_scanned_pdf_goes_through_ocr PASSED         
+tests/test_pdf_ocr.py::test_clean_png_ocr PASSED                        
+tests/test_pdf_ocr.py::test_poor_quality_jpg_still_readable_and_confidence_reported PASSED
+tests/test_pdf_ocr.py::test_multipage_tiff PASSED                       
+tests/test_pdf_ocr.py::test_blank_image_gives_empty_text_not_crash PASSED
+tests/test_pdf_ocr.py::test_corrupt_pdf[] PASSED                        
+tests/test_pdf_ocr.py::test_corrupt_pdf[%PDF-1.4 truncated] PASSED      
+tests/test_pdf_ocr.py::test_corrupt_pdf[not a pdf at all] PASSED        
+tests/test_pdf_ocr.py::test_password_protected_pdf PASSED               
+tests/test_pdf_ocr.py::test_corrupt_image PASSED                        
+tests/test_search.py::test_embedding_is_normalised_and_deterministic PASSED
+tests/test_search.py::test_related_text_scores_higher_than_unrelated PASSED
+tests/test_search.py::test_chunking_covers_text_with_overlap PASSED     
+tests/test_spreadsheet.py::test_csv_tabular PASSED                      
+tests/test_spreadsheet.py::test_xlsx_form_like_multi_sheet PASSED       
+tests/test_spreadsheet.py::test_legacy_xls PASSED                       
+tests/test_spreadsheet.py::test_multiple_invoices_grouped_by_number PASSED
+tests/test_spreadsheet.py::test_semicolon_delimiter_and_latin1 PASSED   
+tests/test_spreadsheet.py::test_ambiguous_date_gets_low_confidence PASSED
+tests/test_spreadsheet.py::test_unstructured_sheet_falls_back_to_text PASSED
+tests/test_spreadsheet.py::test_corrupt_spreadsheets_raise_clean_error[e.csv--csv] PASSED
+tests/test_spreadsheet.py::test_corrupt_spreadsheets_raise_clean_error[bad.xlsx-PK\x03\x04garbage-xlsx] PASSED
+tests/test_spreadsheet.py::test_corrupt_spreadsheets_raise_clean_error[bad.xls-\xd0\xcf\x11\xe0junk-xls] PASSED
+tests/test_validation.py::test_clean_invoice_has_no_issues PASSED       
+tests/test_validation.py::test_missing_required_fields_are_errors PASSED
+tests/test_validation.py::test_missing_optional_field_is_warning_but_still_needs_a_human PASSED
+tests/test_validation.py::test_total_mismatch PASSED                    
+tests/test_validation.py::test_rounding_within_tolerance_ok PASSED      
+tests/test_validation.py::test_subtotal_vs_line_items PASSED            
+tests/test_validation.py::test_line_item_arithmetic PASSED              
+tests/test_validation.py::test_invalid_and_negative_numbers PASSED      
+tests/test_validation.py::test_dates_and_currency PASSED                
+tests/test_validation.py::test_suspicious_tax_rate PASSED               
+tests/test_validation.py::test_no_line_items_requires_review PASSED     
+tests/test_validation.py::test_low_confidence_and_ocr_quality_flag_review PASSED
+tests/test_validation.py::test_total_without_subtotal_uses_line_items PASSED
+tests/test_validation.py::test_error_on_large_invoice_is_not_hidden_by_tolerance PASSED
+============================= 96 passed in 13.35s ==============================
+
+== Frontend: vitest ==
+ RUN  v2.1.9 /home/claude/doc-intel/frontend
+ ✓ src/App.test.jsx (9 tests) 1358ms
+   ✓ Document Intelligence UI > searches with the selected mode 634ms
+ Test Files  1 passed (1)
+      Tests  9 passed (9)
+   Start at  21:30:44
+   Duration  2.61s (transform 263ms, setup 78ms, collect 452ms, tests 1.36s, environment 430ms, prepare 90ms)
+
+== Frontend: production build ==
+computing gzip size...
+dist/index.html                   0.41 kB │ gzip:  0.27 kB
+dist/assets/index-BwWkshh5.css    5.66 kB │ gzip:  1.85 kB
+dist/assets/index-d_CzwbG5.js   156.97 kB │ gzip: 50.59 kB
+✓ built in 1.62s
