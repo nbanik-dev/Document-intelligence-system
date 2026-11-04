@@ -1,8 +1,4 @@
 # Walkthrough recording script (about 6-8 minutes)
-
-> The brief requires a recorded walkthrough. A recording cannot be produced by the AI - record this yourself
-> (Loom/OBS) following the script below.
-
 1. **(30 s) Intro** - problem, what the system does. Show `docs/ARCHITECTURE.md` diagram.
 2. **(1 min) Start-up** - `uvicorn app.main:app`, `npm run dev`; open http://localhost:8000/docs briefly.
 3. **(1.5 min) Upload** - drag in a mix from `backend/data/eval/`: `digital_000.pdf`, `scan_001.pdf`, `image_014.jpg`, `table_000.csv`, `form_000.xlsx`, `legacy_000.xls`. Show progress bars/stages updating live.
