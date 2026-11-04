@@ -4,7 +4,7 @@ Upload invoices/receipts as **PDF, JPG, PNG, TIFF, XLSX, XLS or CSV** (digital o
 ~1000 pages). The system reads them (text layer / OCR / spreadsheet parser), extracts structured invoice JSON
 (never inventing values), validates the arithmetic, detects duplicates, flags records for manual review, and makes
 everything searchable through a REST API and a React UI.
-
+Recording Walkthrough Link:https://drive.google.com/file/d/19lnDv7eO59a3EiBA6JsX4mSwXeiKYmBH/view?usp=sharing
 | Task in the brief | Where |
 |---|---|
 | 1 Document processing | `backend/app/pipeline/` (`pdf.py`, `ocr.py`, `image.py`, `spreadsheet.py`) |
